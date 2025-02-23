@@ -61,4 +61,16 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 4: branches workflow.
+
+## Test to accept only numerical characters.
+*Steps
+1. Build and run CiCo.
+2. type "abcd".
+## Expected results
+the input field should accept only numerical input.
+
+
+
+
 
