@@ -70,6 +70,15 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 the input field should accept only numerical input.
 
+## Test to skip checkin/checkout time button.
+*Steps
+1. Build and run CiCo.
+2. Enter 00000000 into the field and click Update.
+3. Wait for status panel to show up.
+4. click button (done)
+## Expected results
+after click the (done) button it should take you back to the main panel.
+
 
 
 
