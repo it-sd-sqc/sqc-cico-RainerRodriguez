@@ -285,6 +285,15 @@ public class Main {
 
     panelStatus.add(Box.createVerticalGlue());
 
+    // add button to skip waiting checkin/checkout
+    JButton skipWait = new JButton("Done");
+    skipWait.setFont(fontMain);
+    skipWait.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+    skipWait.addActionListener(e -> doneProcessing());
+
+    panelStatus.add(skipWait);
+    panelStatus.add(Box.createVerticalGlue());
+
     // Error panel ////////////////////////////////////////////////////////////
     JPanel panelError = new JPanel();
     panelError.setLayout(new BoxLayout(panelError, BoxLayout.PAGE_AXIS));
