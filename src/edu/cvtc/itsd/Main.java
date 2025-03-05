@@ -41,7 +41,7 @@ public class Main {
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (stringToAdd.matches("\\d+")) {  // makes sure to be only numbers by using the expression "\\d+"
+      if (stringToAdd.isEmpty() || stringToAdd.matches("\\d+")) {  // makes sure to be allow numbers by using the expression "\\d+" and empty spaces
         super.insertString(fb, offset, stringToAdd, attr);
       }
     }
@@ -50,7 +50,7 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (stringToAdd.matches("\\d+")) { // makes sure to be only numbers by using the expression "\\d+"
+      if (stringToAdd.isEmpty() || stringToAdd.matches("\\d+")) { // makes sure to be only numbers by using the expression "\\d+"
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
       }
     }
