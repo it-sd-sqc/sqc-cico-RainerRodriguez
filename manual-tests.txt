@@ -80,6 +80,19 @@ the input field should accept only numerical input.
 after click the (done) button it should take you back to the main panel.
 
 
+## Test: Auto-submit after entering the last digit
+
+### Test Steps:
+1. Build and run CiCo.
+2. Enter `00000000` into the field without pressing Enter or clicking Update.
+3. Observe if the system automatically submits when the last digit is entered.
+4. Wait 11 seconds.
+
+### Expected Results:
+* The status panel should appear immediately after step 2 (without pressing Enter or clicking Update).
+* The main panel should appear after step 4.
+
+
 
 
 

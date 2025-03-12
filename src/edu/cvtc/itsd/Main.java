@@ -39,19 +39,29 @@ public class Main {
 
     @Override
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
-        throws BadLocationException
+            throws BadLocationException
     {
-      if (stringToAdd.isEmpty() || stringToAdd.matches("\\d+")) {  // makes sure to be allow numbers by using the expression "\\d+" and empty spaces
+      if (stringToAdd.matches("\\d+")) {  // Ensure only numbers are added
         super.insertString(fb, offset, stringToAdd, attr);
+        checkLengthAndSubmit(fb);
       }
     }
 
     @Override
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
-        throws BadLocationException
+            throws BadLocationException
     {
-      if (stringToAdd.isEmpty() || stringToAdd.matches("\\d+")) { // makes sure to be only numbers by using the expression "\\d+"
+      if (stringToAdd.matches("\\d+")) {  // Ensure only numbers are added
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+        checkLengthAndSubmit(fb);
+      }
+    }
+
+    // New method to check length and trigger processCard if MAX_LENGTH is reached
+    private void checkLengthAndSubmit(FilterBypass fb) throws BadLocationException {
+      Document doc = fb.getDocument();
+      if (doc.getLength() == MAX_LENGTH) {
+        SwingUtilities.invokeLater(Main::processCard);  // Run on EDT to avoid GUI issues
       }
     }
   }
@@ -254,11 +264,6 @@ public class Main {
     fieldNumber.setForeground(Color.magenta);
     panelMain.add(fieldNumber);
 
-    JButton updateButton = new JButton("Update");
-    updateButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    updateButton.addActionListener(new Update());
-    updateButton.setForeground(Color.green);
-    panelMain.add(updateButton);
 
     panelMain.add(Box.createVerticalGlue());
 
